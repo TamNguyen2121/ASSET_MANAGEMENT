@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Asset>
  */
-class EquipmentFactory extends Factory
+class AssetFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -36,7 +36,7 @@ class EquipmentFactory extends Factory
             'purchase_date' => fake()->dateTimeBetween('2020-01-01', 'now')->format('Y-m-d'),
             'warranty_period' => fake()->dateTimeBetween('2024-01-01', 'now')->format('Y-m-d'),
             'employee_id' => fake()->numberBetween(1, 100),
-            'description' => fake()->paragraph(3),
+            'asset_description' => fake()->paragraph(3),
             'note' => fake()->paragraph(3),
             'status' => fake()->numberBetween(0, 1),
             'created_by' => fake()->numberBetween(1, 100),

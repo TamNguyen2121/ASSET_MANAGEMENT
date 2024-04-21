@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AssetCategory>
  */
-class EquipmentCategoryFactory extends Factory
+class AssetCategoryFactory extends Factory
 {
     /**
      * Define the model's default state.

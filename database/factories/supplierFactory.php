@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class supplierFactory extends Factory
+class SupplierFactory extends Factory
 {
 
     protected $model = \App\Models\supplier::class;
