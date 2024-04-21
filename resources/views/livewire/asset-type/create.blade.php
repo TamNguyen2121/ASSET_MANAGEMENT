@@ -45,7 +45,7 @@
                                         </div>
                                     </div>
                                 @endif
-                                <ul class="list-group asset-type">
+                                <ul class="list-group equipment-type">
                                     @foreach ($asset_type as $index => $data)
                                         <li class="list-group-item py-3 d-flex justify-content-between"
                                             id="radio{{ $index }}">
