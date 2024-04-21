@@ -13,7 +13,7 @@ use Livewire\Attributes\On;
 use App\Models\Employee;
 
 #[Layout('layout.app.layout')]
-#[Title('Quản lý thiết bị')]
+#[Title('Quản lý tài sản')]
 class Index extends Component
 {
     use WithPagination;
@@ -151,7 +151,7 @@ class Index extends Component
         $this->dispatch(
             'confirm',
             title: 'Bạn đã chắc chưa ?',
-            text: 'Bạn có chắc xoá loại thiết bị ' . $equipment->name,
+            text: 'Bạn có chắc xoá loại tài sản ' . $equipment->name,
             confirmText: 'Có, tôi đã chắc',
             cancelText: 'Không',
             userId: $equipment->id,

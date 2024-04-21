@@ -13,7 +13,7 @@ use Livewire\Attributes\On;
 
 
 #[Layout('layout.app.layout')]
-#[Title('Thêm mới loại thiết bị')]
+#[Title('Thêm mới loại tài sản')]
 class Create extends Component
 {
     #[Validate()]
@@ -157,7 +157,7 @@ class Create extends Component
     public function validationAttributes()
     {
         return [
-            'name' => 'Tên loại thiết bị',
+            'name' => 'Tên loại tài sản',
             'description' => 'Mô tả',
             'asset_type_id' => 'Kiểu tài sản',
             'code' => 'Mã tài sản',
