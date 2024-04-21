@@ -78,8 +78,8 @@
                             <label class="form-label">Đối tượng cấp phát</label>
                             <select class="form-select" wire:model='object' disabled>
                                 <option selected value=""></option>
-                                <option value="0">Cá nhân</option>
-                                <option value="1">Tập thể</option>
+                                <option value="0">Nhân viên</option>
+                                <option value="1">Phòng ban</option>
                             </select>
                         </div>
                         <div class="col-5">

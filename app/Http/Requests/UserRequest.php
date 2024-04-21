@@ -29,7 +29,7 @@ class UserRequest extends FormRequest
             'email' => 'Email',
             'address' => 'Địa chỉ',
             'phone_number' => 'Số điện thoại',
-            'account_code' => 'Mã tài khoản',
+            'user_name' => 'Tên đăng nhập',
             'password' => 'Mật khẩu',
         ];
     }
@@ -43,7 +43,7 @@ class UserRequest extends FormRequest
             'email' => 'required|email|max:255',
             'address' => 'required|string|max:255',
             'phone_number' => 'required|numeric|digits_between:10,11',
-            'account_code' => 'required|string|max:255',
+            'user_name' => 'required|string|max:255',
             'password' => 'required|string|min:6',
         ];
     }

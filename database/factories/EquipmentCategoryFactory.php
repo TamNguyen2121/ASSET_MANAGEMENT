@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\EquipmentCategory>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AssetCategory>
  */
 class EquipmentCategoryFactory extends Factory
 {
@@ -28,7 +28,7 @@ class EquipmentCategoryFactory extends Factory
             'name' => fake()->name(),
             'description' => fake()->name(),
             'created_by' => fake()->numberBetween(1, 100),
-            'equipment_type_id' => fake()->numberBetween(1, 10),
+            'asset_type_id' => fake()->numberBetween(1, 10),
         ];
     }
 }

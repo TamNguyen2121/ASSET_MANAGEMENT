@@ -46,7 +46,7 @@
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link {{ Request::is('admin/user/*') ? 'active' : '' }}"
-                        href="{{ route('admin.user.list') }}" aria-expanded="false">
+                        href="{{ route('admin.employee.list') }}" aria-expanded="false">
                             <span>
                                 <i class="bi bi-person-fill"></i>
                             </span>
@@ -62,7 +62,7 @@
                     </a>
                 </li> -->
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('admin/supliers/*') ? 'active' : '' }}"
+                    <a class="sidebar-link {{ Request::is('admin/suplier/*') ? 'active' : '' }}"
                         href="{{ route('admin.suplier.list') }}">
                         <span>
                             <i class="bi bi-archive-fill"></i>
@@ -75,8 +75,8 @@
                     <span class="hide-menu text-white">Quản lý tài sản thiết bị</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('admin/equipment-type/*') ? 'active' : '' }}"
-                        href="{{ route('admin.equipment_type.list') }}">
+                    <a class="sidebar-link {{ Request::is('admin/asset-type/*') ? 'active' : '' }}"
+                        href="{{ route('admin.asset_type.list') }}">
                         <span>
                             <i class="bi bi-bookmark-fill"></i>
                         </span>
@@ -84,8 +84,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ Request::is('admin/equipment/*') ? 'active' : '' }}"
-                        href="{{ route('admin.equipment.list') }}">
+                    <a class="sidebar-link {{ Request::is('admin/asset/*') ? 'active' : '' }}"
+                        href="{{ route('admin.asset.list') }}">
                         <span>
                             <i class="bi bi-inboxes-fill"></i>
                         </span>

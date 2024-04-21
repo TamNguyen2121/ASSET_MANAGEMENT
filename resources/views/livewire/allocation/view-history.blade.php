@@ -98,9 +98,9 @@
                                             <td class="border-bottom-0">
                                                 <p class="mb-0 fw-normal">
                                                     @if ($data->object == 0)
-                                                        Cá nhân
+                                                        Nhân viên
                                                     @else
-                                                        Tập thể
+                                                        Phòng ban
                                                     @endif
                                                 </p>
                                             </td>

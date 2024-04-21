@@ -5,22 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class allocation extends Model
+class Allocation extends Model
 {
     use HasFactory;
 
-    protected $table = "allocations";
+    protected $table = "allocation";
     protected $fillable = [
-        "equipment_id",
+        "asset_id",
         "object",
         "reciver_id",
         "created_by",
         "updated_by",
-        "status"
+        "allocate_status"
     ];
     public function getEquipment()
     {
-        $equipment = Equipment::find($this->equipment_id);
+        $equipment = Asset::find($this->asset_id);
         if ($equipment) {
             return $equipment;
         } else {
@@ -29,7 +29,7 @@ class allocation extends Model
     }
     public function getEquipmentName()
     {
-        $equipment = Equipment::find($this->equipment_id);
+        $equipment = Asset::find($this->asset_id);
         if ($equipment) {
             return $equipment->getEquipmentCategory();
         } else {
@@ -38,9 +38,9 @@ class allocation extends Model
     }
     public function getEquipmentType()
     {
-        $equipment = Equipment::find($this->equipment_id);
+        $equipment = Asset::find($this->asset_id);
         if ($equipment) {
-            $equipment_type = EquipmentType::find($equipment->equipment_type_id);
+            $equipment_type = AssetType::find($equipment->asset_type_id);
             if ($equipment_type) {
                 return $equipment_type->name;
             } else {
@@ -50,7 +50,7 @@ class allocation extends Model
     }
     public function getUser()
     {
-        $user = User::find($this->reciver_id);
+        $user = Employee::find($this->reciver_id);
         if ($user) {
             return $user->name;
         } else {
@@ -59,6 +59,6 @@ class allocation extends Model
     }
     public function equipment()
     {
-        return $this->belongsTo(Equipment::class, 'equipment_id');
+        return $this->belongsTo(Asset::class, 'asset_id');
     }
 }

@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class equipment-type-options extends Component
+class asset-type-options extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class equipment-type-options extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.partials.equipment-type-options');
+        return view('components.partials.asset-type-options');
     }
 }

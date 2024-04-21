@@ -14,13 +14,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(100)->create();
+        \App\Models\Employee::factory(100)->create();
         \App\Models\supplier::factory(100)->create();
-        \App\Models\EquipmentType::factory(30)->create();
-        \App\Models\Equipment::factory(200)->create();
-        \App\Models\allocation::factory(100)->create();
-        \App\Models\EquipmentCategory::factory(100)->create();
-        DB::table('users')->insert([
+        \App\Models\AssetType::factory(30)->create();
+        \App\Models\Asset::factory(200)->create();
+        \App\Models\Allocation::factory(100)->create();
+        \App\Models\AssetCategory::factory(100)->create();
+        DB::table('employee')->insert([
             'code' => 'ADMIN',
             'name' => 'admin',
             'email' => 'admin',

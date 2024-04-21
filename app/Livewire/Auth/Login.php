@@ -13,21 +13,23 @@ use Livewire\Component;
 #[Title('Đăng nhập')]
 class Login extends Component
 {
-    public $email;
+    public $user_name;
     public $password;
     public $errors;
     public $show = false;
+
     public function render()
     {
         return view('livewire.auth.login');
     }
+
     public function loginProcess()
     {
-        if ($this->email == '' || $this->password == '') {
+        if ($this->user_name == '' || $this->password == '') {
             $this->errors = "Không để trống thông tin";
             $this->show = true;
         } else {
-            if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+            if (Auth::attempt(['user_name' => $this->user_name, 'password' => $this->password])) {
                 return redirect()->route('admin.home');
             } else {
                 $this->errors = "Sai tài khoản hoặc mật khẩu";
@@ -35,6 +37,7 @@ class Login extends Component
             }
         }
     }
+    
     public function closeAlert()
     {
         if ($this->show == true) {

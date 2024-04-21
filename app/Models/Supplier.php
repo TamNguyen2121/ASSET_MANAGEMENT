@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class supplier extends Model
+class Supplier extends Model
 {
     use HasFactory;
-    protected $table = 'suppliers';
+    protected $table = 'supplier';
     protected $fillable = [
         'code',
         'name',
@@ -16,14 +16,14 @@ class supplier extends Model
         'phone_number',
         'status',
         'note',
-        'tax',
+        'tax_code',
         'created_by',
         'updated_by',
         'email'
     ];
     public function getUser()
     {
-        $created_by = User::find($this->created_by);
+        $created_by = Employee::find($this->created_by);
         if ($created_by) {
             return $created_by->name;
         } else {

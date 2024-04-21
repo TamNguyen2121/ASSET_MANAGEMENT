@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Equipment>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Asset>
  */
 class EquipmentFactory extends Factory
 {
@@ -25,17 +25,17 @@ class EquipmentFactory extends Factory
         $randomPrefix = $this->faker->randomElement($prefixes);
         return [
             'code' => $randomPrefix . $this->faker->unique()->randomNumber(4),
-            'name_id' => fake()->numberBetween(1, 100),
+            'asset_category_id' => fake()->numberBetween(1, 100),
             'promissory_code' => fake()->name(),
             'entry_code' => $randomPrefix . $this->faker->randomNumber(4),
             'supplier_id' => fake()->numberBetween(1, 100),
-            'equipment_type_id' => fake()->numberBetween(1, 30),
+            'asset_type_id' => fake()->numberBetween(1, 30),
             'serial' => $randomNumber,
             'price' => fake()->numberBetween(10000 * 1000, 100000 * 1000),
             'use_status' => fake()->numberBetween(0, 2),
             'purchase_date' => fake()->dateTimeBetween('2020-01-01', 'now')->format('Y-m-d'),
             'warranty_period' => fake()->dateTimeBetween('2024-01-01', 'now')->format('Y-m-d'),
-            'user_id' => fake()->numberBetween(1, 100),
+            'employee_id' => fake()->numberBetween(1, 100),
             'description' => fake()->paragraph(3),
             'note' => fake()->paragraph(3),
             'status' => fake()->numberBetween(0, 1),

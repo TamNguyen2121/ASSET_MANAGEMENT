@@ -24,7 +24,7 @@
                                 <td>{{ $equipment->getEquipmentCategory() }}</td>
                             </tr>
                             <tr>
-                                <th>Loại tài sản</th>
+                                <th>Kiểu tài sản</th>
                                 <td>{{ $equipment->getEquipmentType() }}</td>
                             </tr>
                             <tr>
@@ -65,16 +65,16 @@
                                 <label class="form-label">Đối tượng cấp phát</label>
                                 <select class="form-select" wire:model='object'>
                                     <option selected value=""></option>
-                                    <option value="0">Cá nhân</option>
-                                    <option value="1">Tập thể</option>
+                                    <option value="0">Nhân viên</option>
+                                    <option value="1">Phòng ban</option>
                                 </select>
                                 @error('object')
                                     <span class="text-danger fst-italic">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="col-5">
-                                @livewire('user.user-search-bar', ['label' => 'Người nhận'])
-                                @error('user_id')
+                                @livewire('employee.employee-search-bar', ['label' => 'Người nhận'])
+                                @error('employee_id')
                                     <span class="text-danger fst-italic">{{ $message }}</span>
                                 @enderror
                             </div>

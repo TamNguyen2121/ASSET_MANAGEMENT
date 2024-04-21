@@ -6,8 +6,8 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\EquipmentType;
-use App\Models\Equipment;
+use App\Models\AssetType;
+use App\Models\Asset;
 use App\Models\allocation as Allocation;
 
 
@@ -21,7 +21,7 @@ class Index extends Component
     public $selectAll = false;
     public $firstId = null;
 
-    public $equipment_type_id;
+    public $asset_type_id;
     public $name;
     public $code;
     public $parent_id;
@@ -31,12 +31,12 @@ class Index extends Component
         $equipments = $this->searchEquipment();
         return view('livewire.allocation.index', [
             'equipments' => $equipments,
-            'equipment_types' => EquipmentType::where('status', 1)->latest()->get()
+            'asset_type' => AssetType::where('status', 1)->latest()->get()
         ]);
     }
     public function searchEquipment()
     {
-        $query = Equipment::query();
+        $query = Asset::query();
         if (!empty($this->name)) {
             $query->whereHas('equipmentType', function ($equipmentQuery) {
                 $equipmentQuery->where('name', 'like', '%' . $this->name . '%');
@@ -51,12 +51,12 @@ class Index extends Component
             $query->whereIn('use_status', [0, 1]);
         }
         if (!empty($this->parent_id)) {
-            $query->where('equipment_type_id', $this->parent_id);
+            $query->where('asset_type_id', $this->parent_id);
         }
         $query->whereIn('status', [1, 2]);
         $query->whereNotIn('id', function ($allocationQuery) {
-            $allocationQuery->select('equipment_id')
-                ->from('allocations');
+            $allocationQuery->select('asset_id')
+                ->from('allocation');
         });
         $query->orWhereHas('allocations', function ($allocationQuery) {
             $allocationQuery->where('status', 0);

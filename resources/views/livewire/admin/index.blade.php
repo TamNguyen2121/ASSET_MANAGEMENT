@@ -274,8 +274,19 @@
     </div> --}}
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Thống kê</h1>
+            <h1 class="h3 mb-0 text-gray-800">Báo cáo thông kê</h1>
         </div>
+        <nav class="nav nav-pills flex-column flex-sm-row bg-white rounded mb-3">
+            <a class="flex-sm-fill text-sm-center nav-link active" href="{{ route('admin.allocation.list') }}" wire:navigate>
+                Tài sản chưa cấp phát
+            </a>
+            <a class="flex-sm-fill text-sm-center nav-link text-dark" href="{{ route('admin.allocation.issued') }}" wire:navigate>Tài
+                sản đã cấp phát</a>
+            <a class="flex-sm-fill text-sm-center nav-link text-dark" href="{{ route('admin.allocation.history') }}" wire:navigate>Lịch sử cấp phát</a>
+            <a class="flex-sm-fill text-sm-center nav-link text-dark" href="{{ route('admin.allocation.issued') }}" wire:navigate>Tài
+                sản đã cấp phát</a>
+            <a class="flex-sm-fill text-sm-center nav-link text-dark" href="{{ route('admin.allocation.history') }}" wire:navigate>Lịch sử cấp phát</a>
+        </nav>
         <div class="row">
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border2 shadow h-100 py-2">
@@ -337,7 +348,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 
-                                    Đã thu hồi</div>
+                                    Tài sản đã thanh lý</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $countDispensing }} tài sản</div>
                             </div>
                             <div class="col-auto">
@@ -353,7 +364,7 @@
         <div class="col-lg-12 d-flex align-items-stretch">
             <div class="card w-100 mx-3">
                 <div class="card-body p-4 shadow-lg">
-                    <h5 class="card-title fw-semibold mb-4">Cấp phát gần đây</h5>
+                    <h5 class="card-title fw-semibold mb-4">Danh sách tài sản</h5>
                     <div class="table-responsive">
                         <table class="table text-nowrap table-bordered mb-0 align-middle">
                             <thead class="text-dark fs-4">
@@ -377,39 +388,39 @@
                             </thead>
                             <tbody>
                                 @php
-                                    $i = 1;
+                                $i = 1;
                                 @endphp
                                 @foreach ($allocations as $data)
-                                    <tr>
-                                        <td class="border-bottom-0">
-                                            <h6 class="fw-semibold mb-0">
-                                                {{ $i }}
-                                            </h6>
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <h6 class="fw-semibold mb-1">{{ $data->getEquipmentName() }}</h6>
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <p class="mb-0 fw-normal">{{ $data->getUser() }}</p>
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            @if ($data->status == 1)
-                                                <span class="badge text-bg-success" style="width: 150px">Đang cấp
-                                                    phát</span>
-                                            @else
-                                                <span class="badge text-bg-danger" style="width: 150px">Đã huỷ cấp
-                                                    phát</span>
-                                            @endif
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <h6 class="fw-semibold mb-0 fs-4">
-                                                {{ date('d/m/Y', strtotime($data->created_at)) }}
-                                            </h6>
-                                        </td>
-                                    </tr>
-                                    @php
-                                        $i++;
-                                    @endphp
+                                <tr>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">
+                                            {{ $i }}
+                                        </h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-1">{{ $data->getEquipmentName() }}</h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <p class="mb-0 fw-normal">{{ $data->getUser() }}</p>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        @if ($data->status == 1)
+                                        <span class="badge text-bg-success" style="width: 150px">Đang cấp
+                                            phát</span>
+                                        @else
+                                        <span class="badge text-bg-danger" style="width: 150px">Đã huỷ cấp
+                                            phát</span>
+                                        @endif
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0 fs-4">
+                                            {{ date('d/m/Y', strtotime($data->created_at)) }}
+                                        </h6>
+                                    </td>
+                                </tr>
+                                @php
+                                $i++;
+                                @endphp
                                 @endforeach
 
                                 {{-- <tr>
@@ -479,3 +490,4 @@
             </div>
         </div>
     </div>
+

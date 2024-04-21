@@ -3,7 +3,7 @@
 namespace App\Livewire\Allocation;
 
 use App\Models\allocation as Allocation;
-use App\Models\Equipment;
+use App\Models\Asset;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
@@ -20,12 +20,12 @@ class ViewHistory extends Component
     public $page = 10;
     public function mount($id)
     {
-        $this->equipment = Equipment::find($id);
+        $this->equipment = Asset::find($id);
     }
     public function render()
     {
         return view('livewire.allocation.view-history', [
-            'allocations' => Allocation::where('equipment_id', $this->equipment->id)->paginate($this->page)
+            'allocations' => Allocation::where('asset_id', $this->equipment->id)->paginate($this->page)
         ]);
     }
     public function stopDispensing($id)

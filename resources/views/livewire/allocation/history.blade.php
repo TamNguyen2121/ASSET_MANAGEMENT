@@ -12,7 +12,7 @@
         <div class="col-12 d-flex align-items-stretch">
             <div class="card w-100">
                 <div class="card-body p-4">
-                    <h5 class="card-title fw-semibold mb-4">Tìm kiếm loại thiết bị</h5>
+                    <h5 class="card-title fw-semibold mb-4">Tìm kiếm tài sản</h5>
                     <div class="row">
                         <div class="col-12">
                             <div>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-12 mb-3 d-flex justify-content-between">
                             <div>
-                                <h5 class="">Danh sách loại thiết bị</h5>
+                                <h5 class="">Danh sách tài sản</h5>
                             </div>
                         </div>
                     </div>

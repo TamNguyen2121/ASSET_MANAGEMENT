@@ -1,14 +1,10 @@
 <div class="mt-1">
     <nav class="nav nav-pills flex-column flex-sm-row bg-white rounded">
-        <a class="flex-sm-fill text-sm-center nav-link text-dark" href="{{ route('admin.allocation.list') }}"
-            wire:navigate>
+        <a class="flex-sm-fill text-sm-center nav-link text-dark" href="{{ route('admin.allocation.list') }}" wire:navigate>
             Tài sản chưa cấp phát
         </a>
-        <a class="flex-sm-fill text-sm-center nav-link active" href="{{ route('admin.allocation.issued') }}"
-            wire:navigate>Tài sản đã
-            cấp phát</a>
-        <a class="flex-sm-fill text-sm-center nav-link text-dark" href="{{ route('admin.allocation.history') }}"
-            wire:navigate>Lịch sử cấp phát</a>
+        <a class="flex-sm-fill text-sm-center nav-link active" href="{{ route('admin.allocation.issued') }}" wire:navigate>Tài sản đang cấp phát</a>
+        <a class="flex-sm-fill text-sm-center nav-link text-dark" href="{{ route('admin.allocation.history') }}" wire:navigate>Lịch sử cấp phát</a>
     </nav>
     <div class="row mt-3">
         <div class="col-12 d-flex align-items-stretch">
@@ -22,20 +18,18 @@
                                     <div class="d-flex justify-content-between">
                                         <div class="col-md-3">
                                             <div class="mb-3">
-                                                <x-form.input :label="'Mã tài sản'" :type="'text'" :wire_model="'code'"
-                                                    :error="''" />
+                                                <x-form.input :label="'Mã tài sản'" :type="'text'" :wire_model="'code'" :error="''" />
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <x-form.input :label="'Tên tài sản'" :type="'text'" :wire_model="'name'"
-                                                :error="''" />
+                                            <x-form.input :label="'Tên tài sản'" :type="'text'" :wire_model="'name'" :error="''" />
                                         </div>
                                         <div class="col-md-3">
                                             <label class="form-label">Kiểu tài sản</label>
                                             <select class="form-select" wire:model='parent_id'>
                                                 <option value=""></option>
-                                                @foreach ($equipment_types as $data)
-                                                    <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                                @foreach ($asset_type as $data)
+                                                <option value="{{ $data->id }}">{{ $data->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -47,7 +41,6 @@
                                                 <option value="">Tất cả</option>
                                                 <option value="1">Tốt</option>
                                                 <option value="0">Hỏng</option>
-                                                <option value="2">Đã thanh lý</option>
                                             </select>
                                         </div>
                                         <div class="col-3">
@@ -61,14 +54,12 @@
                                         </div>
                                         <div class="col-3">
                                             <div class="mb-3">
-                                                @livewire('user.user-search-bar', ['label' => 'Người nhận'])
+                                                @livewire('employee.employee-search-bar', ['label' => 'Người nhận'])
                                             </div>
                                             <div class="d-flex float-end gap-3">
-                                                <button wire:click.prevent='resetSearch'
-                                                    class="btn btn-secondary border">
+                                                <button wire:click.prevent='resetSearch' class="btn btn-secondary border">
                                                     <i class="ti ti-reload"></i>Đặt lại bộ lọc</button>
-                                                <button class="btn btn-primary" type="submit"><i
-                                                        class="ti ti-search"></i>Tìm
+                                                <button class="btn btn-primary" type="submit"><i class="ti ti-search"></i>Tìm
                                                     kiếm</button>
                                             </div>
                                         </div>
@@ -80,7 +71,7 @@
                         </div>
                         <div class="col-12 mb-3 d-flex justify-content-between">
                             <div>
-                                <h5 class="">Danh sách tài sản đã cấp phát</h5>
+                                <h5 class="">Danh sách tài sản đang cấp phát</h5>
                             </div>
                             <div class="d-flex gap-3">
                             </div>
@@ -121,69 +112,65 @@
                             </thead>
                             <tbody>
                                 @if (count($allocations) > 0)
-                                    @foreach ($allocations as $index => $data)
-                                        <tr>
-                                            <td class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0 text-center">
-                                                    {{ $allocations->firstItem() + $index }}
-                                                </h6>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-1">
-                                                    @if ($data->getEquipment()->use_status == 1)
-                                                        <span class="badge text-bg-success"
-                                                            style="width: 100px">Tốt</span>
-                                                    @elseif ($data->getEquipment()->use_status == 0)
-                                                        <span class="badge text-bg-danger"
-                                                            style="width: 100px">Hỏng</span>
-                                                    @else
-                                                        <span class="badge text-bg-secondary" style="width: 100px">Đã
-                                                            thanh lý</span>
-                                                    @endif
-                                                </h6>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-1">{{ $data->getEquipment()->code }}</h6>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-1">{{ $data->getEquipmentName() }}</h6>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <p class="mb-0 fw-normal">
-                                                    {{ $data->getEquipmentType() }}
-                                                </p>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <p class="mb-0 fw-normal">
-                                                    {{ $data->created_at->format('d/m/Y') }}</p>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <p class="mb-0 fw-normal">
-                                                    @if ($data->object == 0)
-                                                        Cá nhân
-                                                    @else
-                                                        Tập thể
-                                                    @endif
-                                                </p>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <p class="mb-0 fw-normal">{{ $data->getUser() }}</p>
-                                            </td>
+                                @foreach ($allocations as $index => $data)
+                                @if ($data->getEquipment()->use_status != 2)
+                                <tr>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0 text-center">
+                                            {{ $allocations->firstItem() + $index }}
+                                        </h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-1">
+                                            @if ($data->getEquipment()->use_status == 1)
+                                            <span class="badge text-bg-success" style="width: 100px">Tốt</span>
+                                            @else
+                                            <span class="badge text-bg-danger" style="width: 100px">Hỏng</span>
+                                            @endif
+                                        </h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-1">{{ $data->getEquipment()->code }}</h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-1">{{ $data->getEquipmentName() }}</h6>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <p class="mb-0 fw-normal">
+                                            {{ $data->getEquipmentType() }}
+                                        </p>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <p class="mb-0 fw-normal">
+                                            {{ $data->created_at->format('d/m/Y') }}</p>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <p class="mb-0 fw-normal">
+                                            @if ($data->object == 0)
+                                            Nhân viên
+                                            @else
+                                            Phòng ban
+                                            @endif
+                                        </p>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <p class="mb-0 fw-normal">{{ $data->getUser() }}</p>
+                                    </td>
 
-                                            <td class="border-bottom-0">
-                                                <x-button.view :route="'admin.allocation.view'" :id="$data->id" />
-                                                <x-button.delete :action="'stopDispensing'" :id="$data->id"
-                                                    :icon="'ti ti-minus'" />
+                                    <td class="border-bottom-0">
+                                        <x-button.view :route="'admin.allocation.view'" :id="$data->id" />
+                                        <x-button.delete :action="'stopDispensing'" :id="$data->id" :icon="'ti ti-minus'" />
 
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                    </td>
+                                </tr>
+                                @endif
+                                @endforeach
                                 @else
-                                    <tr class="text-center">
-                                        <td colspan="10">
-                                            Không có dữ liệu
-                                        </td>
-                                    </tr>
+                                <tr class="text-center">
+                                    <td colspan="10">
+                                        Không có dữ liệu
+                                    </td>
+                                </tr>
                                 @endif
                             </tbody>
                         </table>
@@ -194,8 +181,7 @@
                         <div class="d-flex justify-content-between">
                             <div class="flex space-x-4 items-center">
                                 <label class="w-32 text-sm font-medium text-gray-900">Hiển thị : </label>
-                                <select wire:model.live='page'
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                                <select wire:model.live='page' class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                     <option value="5">5</option>
                                     <option value="10">10</option>
                                     <option value="20">20</option>
@@ -221,3 +207,4 @@
         </div>
     </div>
 </div>
+

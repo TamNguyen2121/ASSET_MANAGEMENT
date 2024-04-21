@@ -18,7 +18,7 @@ class AllocationFactory extends Factory
     {
         return [
             //
-            'equipment_id' => fake()->numberBetween(1, 200),
+            'asset_id' => fake()->numberBetween(1, 200),
             'object' => fake()->numberBetween(1, 0),
             'reciver_id' => fake()->numberBetween(1, 100),
             'created_by' => fake()->numberBetween(1, 100),

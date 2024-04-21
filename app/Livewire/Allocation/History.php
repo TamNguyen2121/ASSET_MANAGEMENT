@@ -6,8 +6,8 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Equipment;
-use App\Models\EquipmentType;
+use App\Models\Asset;
+use App\Models\AssetType;
 
 #[Layout('layout.app.layout')]
 #[Title('Quản lý cấp phát')]
@@ -19,7 +19,7 @@ class History extends Component
     public $selectAll = false;
     public $firstId = null;
 
-    public $equipment_type_id;
+    public $asset_type_id;
     public $name;
     public $code;
     public $parent_id;
@@ -33,7 +33,7 @@ class History extends Component
     }
     public function searchEquipment()
     {
-        $query = Equipment::query();
+        $query = Asset::query();
         if (!empty($this->name)) {
             $query->whereHas('equipmentType', function ($equipmentQuery) {
                 $equipmentQuery->where('name', 'like', '%' . $this->name . '%');
@@ -46,7 +46,7 @@ class History extends Component
             $query->where('use_status', $this->use_status);
         }
         if (!empty($this->parent_id)) {
-            $query->where('equipment_type_id', $this->parent_id);
+            $query->where('asset_type_id', $this->parent_id);
         }
         return $query->where('status', 1)->whereIn('use_status', [0, 1])->paginate($this->page);
         $this->gotoPage(1);

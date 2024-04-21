@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Employee>
  */
 class UserFactory extends Factory
 {
@@ -29,7 +29,7 @@ class UserFactory extends Factory
             'date_of_birth' => fake()->date(),
             'identity_card' => fake()->numberBetween(1000, 100000),
             'phone_number' => fake()->phoneNumber(),
-            'account_code' => fake()->name(),
+            'user_name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'password' => static::$password ??= Hash::make('password'),
             'created_by' => 1,

@@ -3,8 +3,8 @@
 namespace App\Livewire\Allocation;
 
 use App\Models\allocation as Allocation;
-use App\Models\Equipment;
-use App\Models\User;
+use App\Models\Asset;
+use App\Models\Employee;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
@@ -22,9 +22,9 @@ class View extends Component
     {
         $this->allocation = Allocation::find($id);
         if ($this->allocation) {
-            $this->equipment = Equipment::find($this->allocation->equipment_id);
+            $this->equipment = Asset::find($this->allocation->asset_id);
             $this->object = $this->allocation->object;
-            $this->user_name = User::find($this->allocation->reciver_id)->name;
+            $this->user_name = Employee::find($this->allocation->reciver_id)->name;
         }
     }
     public function render()

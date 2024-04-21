@@ -11,7 +11,7 @@
                     </span>
                     <div class="mb-3">
                         <label class="form-label">Tài khoản</label>
-                        <input class="form-control p-3" type="text" wire:model='email'>
+                        <input class="form-control p-3" type="text" wire:model='user_name'>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Mật khẩu</label>
