@@ -109,7 +109,7 @@
                                             </td>
                                             <td class="border-bottom-0">
                                                 <p class="mb-0 fw-normal">
-                                                    @if ($data->status == 1)
+                                                    @if ($data->allocate_status == 1)
                                                         <span class="badge text-bg-success" style="width: 150px">Đang
                                                             cấp phát</span>
                                                     @else
@@ -120,7 +120,7 @@
                                             </td>
                                             <td class="border-bottom-0">
                                                 <x-button.view :route="'admin.allocation.view'" :id="$data->id" />
-                                                @if ($data->status == 1)
+                                                @if ($data->allocate_status == 1)
                                                     <x-button.delete :action="'stopDispensing'" :id="$data->id"
                                                         :icon="'ti ti-minus'" />
                                                 @endif

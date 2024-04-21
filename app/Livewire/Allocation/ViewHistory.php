@@ -47,7 +47,7 @@ class ViewHistory extends Component
         $allocation = Allocation::find($id);
         if ($allocation) {
             $allocation->update([
-                'status' => 0,
+                'allocate_status' => 0,
             ]);
         }
     }

@@ -61,7 +61,7 @@
                             <tr>
                                 <th>Tình trạng cấp phát</th>
                                 <td>
-                                    @if ($allocation->status == 1)
+                                    @if ($allocation->allocate_status == 1)
                                         <span class="badge text-bg-success" style="width: 150px">Đang cấp phát</span>
                                     @else
                                         <span class="badge text-bg-danger" style="width: 150px">Đã huỷ cấp phát</span>
@@ -91,7 +91,7 @@
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">
                         <x-button.previous :route="'admin.allocation.issued'"></x-button.previous>
-                        @if ($allocation->status == 1)
+                        @if ($allocation->allocate_status == 1)
                             <button class="btn btn-danger" wire:click='stopDispensing()'>Thu hồi</button>
                         @endif
                     </div>
