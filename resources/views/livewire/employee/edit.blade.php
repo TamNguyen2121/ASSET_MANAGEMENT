@@ -7,7 +7,7 @@
                     <form wire:submit='updateUser'>
                         <div class="d-flex justify-content-between">
                             <div class="col-5">
-                                <x-form.input :label="'Mã nhân viên'" :type="'text'" :wire_model="'code'"
+                                <x-form.input disabled :label="'Mã nhân viên'" :type="'text'" :wire_model="'code'"
                                     :error="'code'"></x-form.input>
                             </div>
                             <div class="col-5">
@@ -49,9 +49,6 @@
                             <div class="col-5">
                                 <x-form.input :label="'Mật khẩu'" :type="'password'" :wire_model="'password'"
                                     :error="'password'" :disabled="true"></x-form.input>
-                            </div>
-                            <div class="col-5">
-                                <x-form.status />
                             </div>
                         </div>
                 </div>

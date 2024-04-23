@@ -24,7 +24,7 @@
                                 <td>{{ $equipment->getEquipmentCategory() }}</td>
                             </tr>
                             <tr>
-                                <th>Loại tài sản</th>
+                                <th>Kiểu tài sản</th>
                                 <td>{{ $equipment->getEquipmentType() }}</td>
                             </tr>
                             <tr>
@@ -69,16 +69,13 @@
                                         <h6 class="fw-semibold mb-0">Ngày cấp phát</h6>
                                     </th>
                                     <th class="border-bottom-0">
+                                        <h6 class="fw-semibold mb-0">Ngày thu hồi</h6>
+                                    </th>
+                                    <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Đối tượng cấp phát</h6>
                                     </th>
                                     <th class="border-bottom-0">
                                         <h6 class="fw-semibold mb-0">Người nhận</h6>
-                                    </th>
-                                    <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Tình trạng cấp phát</h6>
-                                    </th>
-                                    <th class="border-bottom-0">
-                                        <h6 class="fw-semibold mb-0">Thao tác</h6>
                                     </th>
                                 </tr>
                             </thead>
@@ -97,6 +94,10 @@
                                             </td>
                                             <td class="border-bottom-0">
                                                 <p class="mb-0 fw-normal">
+                                                    {{ $data->updated_at->format('d/m/Y') }}</p>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <p class="mb-0 fw-normal">
                                                     @if ($data->object == 0)
                                                         Nhân viên
                                                     @else
@@ -106,25 +107,6 @@
                                             </td>
                                             <td class="border-bottom-0">
                                                 <p class="mb-0 fw-normal">{{ $data->getUser() }}</p>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <p class="mb-0 fw-normal">
-                                                    @if ($data->allocate_status == 1)
-                                                        <span class="badge text-bg-success" style="width: 150px">Đang
-                                                            cấp phát</span>
-                                                    @else
-                                                        <span class="badge text-bg-danger" style="width: 150px">Đã huỷ
-                                                            cấp phát</span>
-                                                    @endif
-                                                </p>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <x-button.view :route="'admin.allocation.view'" :id="$data->id" />
-                                                @if ($data->allocate_status == 1)
-                                                    <x-button.delete :action="'stopDispensing'" :id="$data->id"
-                                                        :icon="'ti ti-minus'" />
-                                                @endif
-
                                             </td>
                                         </tr>
                                     @endforeach

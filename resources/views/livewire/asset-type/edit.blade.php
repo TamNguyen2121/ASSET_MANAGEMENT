@@ -7,7 +7,7 @@
                     <form wire:submit.prevent='updateEquipmentCategory'>
                         <div class="d-flex justify-content-between">
                             <div class="col-5">
-                                <x-form.input :label="'Mã loại tài sản'" :type="'text'" :wire_model="'code'"
+                                <x-form.input disabled :label="'Mã loại tài sản'" :type="'text'" :wire_model="'code'"
                                     :error="'code'"></x-form.input>
                             </div>
                             <div class="col-5">

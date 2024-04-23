@@ -110,13 +110,12 @@
                                     </td>
                                     <td class="border-bottom-0">
                                         <h6 class="fw-semibold mb-1">
-                                            @if ($data->use_status == 1)
+                                            @if ($data->use_status === 1)
                                             <span class="badge text-bg-success" style="width: 100px">Tốt</span>
-                                            @elseif ($data->use_status == 0)
+                                            @elseif ($data->use_status === 0)
                                             <span class="badge text-bg-danger" style="width: 100px">Hỏng</span>
                                             @else
-                                            <span class="badge text-bg-secondary" style="width: 100px">Đã
-                                                thanh lý</span>
+                                            <span class="badge text-bg-secondary" style="width: 100px">Đã thanh lý</span>
                                             @endif
                                         </h6>
                                     </td>

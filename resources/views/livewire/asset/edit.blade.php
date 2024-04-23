@@ -7,7 +7,7 @@
                     <form wire:submit.prevent='updateEquipment'>
                         <div class="d-flex justify-content-between">
                             <div class="col-5">
-                                <x-form.input :label="'Mã tài sản'" :type="'text'" :wire_model="'code'" :error="'code'"></x-form.input>
+                                <x-form.input disabled :label="'Mã tài sản'" :type="'text'" :wire_model="'code'" :error="'code'"></x-form.input>
                             </div>
                             <div class="col-5">
                                 <label class="form-label">Kiểu tài sản</label>
@@ -38,7 +38,7 @@
 
                             <div class="col-5">
                                 <label class="form-label">Trạng thái</label>
-                                <select class="form-select" wire:model='use_status'>
+                                <select class="form-select" wire:model='use_status' disabled>
                                     <option value="1">Tốt</option>
                                     <option value="0">Hỏng</option>
                                     <option value="2">Đã thanh lý</option>

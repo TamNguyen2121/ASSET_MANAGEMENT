@@ -7,7 +7,7 @@
                     <form wire:submit='updateSupplier'>
                         <div class="d-flex justify-content-between">
                             <div class="col-3">
-                                <x-form.input :label="'Mã nhà cung cấp'" :type="'text'" :wire_model="'code'"
+                                <x-form.input disabled :label="'Mã nhà cung cấp'" :type="'text'" :wire_model="'code'"
                                     :error="'code'"></x-form.input>
                             </div>
                             <div class="col-3">

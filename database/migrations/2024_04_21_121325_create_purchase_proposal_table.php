@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('purchase_proposal', function (Blueprint $table) {
             $table->id(); // Auto-incrementing ID key
-            $table->string('purchase_proposal_code')->unique(); // Mã đề xuất
-            $table->string('purchase_proposal_name'); // Tên đề xuất mua hàng
+            $table->string('code')->unique(); // Mã đề xuất
+            $table->string('name'); // Tên đề xuất mua hàng
             $table->string('suppose_buy_time'); // Thời gian mua dự kiến
             $table->string('total_money'); // Tổng tiền dự kiến
             $table->string('approval_buy')->nullable(); // Serial

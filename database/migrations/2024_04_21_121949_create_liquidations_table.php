@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('liquidations', function (Blueprint $table) {
             $table->id(); // Auto-incrementing ID key
-            $table->string('asset_id'); // Mã tài sản
+            $table->integer('asset_id'); // Mã tài sản
             $table->string('approval_by')->nullable(); // Người phê duyệt
             $table->tinyInteger('approval_status')->default(1); // Tình trạng phê duyệt
             $table->text('refuse_reason')->nullable(); // Lý do từ chối

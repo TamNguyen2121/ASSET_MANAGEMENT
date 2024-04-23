@@ -34,6 +34,7 @@ class Index extends Component
             'asset_type' => AssetType::where('status', 1)->latest()->get()
         ]);
     }
+
     public function searchEquipment()
     {
         $query = Asset::query();
@@ -64,6 +65,7 @@ class Index extends Component
 
         return $query->paginate($this->page);
     }
+
     public function resetSearch()
     {
         $this->parent_id = '';

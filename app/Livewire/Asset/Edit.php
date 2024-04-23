@@ -156,7 +156,7 @@ class Edit extends Component
             'code' => 'required|string|max:255|unique:asset,code,' . $this->equipment->code . ',code',
             'asset_category_id' => 'required|max:255',
             'price' => 'required|numeric',
-            'supplier_id' => 'required|exists:suppliers,id',
+            'supplier_id' => 'required|exists:supplier,id',
             'asset_type_id' => 'required',
             'serial' => 'required|string|max:255',
             'use_status' => 'required',
