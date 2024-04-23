@@ -46,7 +46,7 @@ class Index extends Component
         if (!empty($this->code)) {
             $query->where('code', 'like', '%' . $this->code . '%');
         }
-        if ($this->use_status !== null) {
+        if ($this->use_status != null) {
             $query->where('use_status', $this->use_status);
         } else {
             $query->whereIn('use_status', [0, 1]);
@@ -59,10 +59,11 @@ class Index extends Component
             $allocationQuery->select('asset_id')
                 ->from('allocation');
         });
-        $query->orWhereHas('allocations', function ($allocationQuery) {
-            $allocationQuery->where('status', 0);
-        });
+        // $query->orWhereHas('allocations', function ($allocationQuery) {
+        //     $allocationQuery->where('status', 0);
+        // });
 
+        // dd($query->toSql());
         return $query->paginate($this->page);
     }
 

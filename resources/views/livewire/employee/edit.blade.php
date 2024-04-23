@@ -28,7 +28,7 @@
                         <div class="d-flex justify-content-between">
                             <div class="col-5">
                                 <x-form.input :label="'Email'" :type="'text'" :wire_model="'email'"
-                                    :error="'email'" :disabled="true"></x-form.input>
+                                    :error="'email'" ></x-form.input>
                             </div>
                             <div class="col-5">
                                 <x-form.input :label="'Địa chỉ'" :type="'text'" :wire_model="'address'"
