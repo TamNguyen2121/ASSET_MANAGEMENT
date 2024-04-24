@@ -168,6 +168,7 @@
                                             </td>
 
                                             <td class="border-bottom-0">
+                                                <x-button.copy :route="'admin.asset.create'" :id="$data->id" />
                                                 <x-button.edit :route="'admin.asset.edit'" :id="$data->id" />
                                                 <x-button.delete :action="'deleteEquipment'" :id="$data->id" />
                                             </td>
