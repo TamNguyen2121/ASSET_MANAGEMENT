@@ -38,13 +38,13 @@
         .border4 {
             border-bottom: 5px solid #539BFF;
         }
+
     </style>
 </head>
 
 <body>
 
-    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-        data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
         <aside class="left-sidebar">
             @include('layout.app.sidebar')
         </aside>
@@ -66,11 +66,13 @@
     <script src="{{ asset('admin_dashbroad/assets/js/app.min.js') }}"></script>
     <script src="{{ asset('admin_dashbroad/assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('admin_dashbroad/assets/libs/simplebar/dist/simplebar.js') }}"></script>
-    <script src="{{ asset('admin_dashbroad/assets/js/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('admin_dashbroad/assets/js/dashboard.js') }}"></script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
     @stack('js')
 </body>
 
 </html>
+
