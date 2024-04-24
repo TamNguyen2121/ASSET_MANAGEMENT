@@ -16,15 +16,15 @@
                             <div>
                                 <form wire:submit='searchEquipment'>
                                     <div class="d-flex justify-content-between">
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="mb-3">
                                                 <x-form.input :label="'Mã tài sản'" :type="'text'" :wire_model="'code'" :error="''" />
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4 px-5">
                                             <x-form.input :label="'Tên tài sản'" :type="'text'" :wire_model="'name'" :error="''" />
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <label class="form-label">Kiểu tài sản</label>
                                             <select class="form-select" wire:model='parent_id'>
                                                 <option value=""></option>
@@ -35,7 +35,7 @@
                                         </div>
                                     </div>
                                     <div class="d-flex justify-content-between mb-3">
-                                        <div class="col-3">
+                                        <div class="col-4">
                                             <label class="form-label">Trạng thái</label>
                                             <select class="form-select" wire:model='use_status'>
                                                 <option value="">Tất cả</option>
@@ -43,7 +43,7 @@
                                                 <option value="0">Hỏng</option>
                                             </select>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-4 px-5">
                                             <label for="exampleInputEmail1" class="form-label">Ngày tạo</label>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text border">Từ</span>
@@ -52,7 +52,7 @@
                                                 <input type="date" class="form-control" wire:model='endDate'>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-4">
                                             <div class="mb-3">
                                                 @livewire('employee.employee-search-bar', ['label' => 'Người nhận'])
                                             </div>

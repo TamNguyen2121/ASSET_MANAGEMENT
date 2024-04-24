@@ -10,6 +10,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\On;
 use App\Models\Employee;
+use Carbon\Carbon;
 
 #[Layout('layout.app.layout')]
 #[Title('Quản lý cấp phát')]
@@ -111,6 +112,7 @@ class Index1 extends Component
         if ($allocation) {
             $allocation->update([
                 'allocate_status' => 0,
+                'updated_at' => Carbon::now()
             ]);
         }
     }

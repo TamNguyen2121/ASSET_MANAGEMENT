@@ -16,7 +16,9 @@ class Allocation extends Model
         "reciver_id",
         "created_by",
         "updated_by",
-        "allocate_status"
+        "allocate_status",
+        "created_at",
+        "updated_at"
     ];
     public function getEquipment()
     {

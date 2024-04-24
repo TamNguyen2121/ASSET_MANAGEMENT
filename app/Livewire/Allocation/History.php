@@ -48,7 +48,7 @@ class History extends Component
         if (!empty($this->parent_id)) {
             $query->where('asset_type_id', $this->parent_id);
         }
-        return $query->where('status', 1)->whereIn('use_status', [0, 1])->paginate($this->page);
+        return $query->where('status', 1)->paginate($this->page);
         $this->gotoPage(1);
     }
     public function resetSearch()

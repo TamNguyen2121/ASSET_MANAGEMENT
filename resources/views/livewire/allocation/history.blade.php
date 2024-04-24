@@ -41,6 +41,7 @@
                                                 <option value="">Tất cả</option>
                                                 <option value="1">Tốt</option>
                                                 <option value="0">Hỏng</option>
+                                                <option value="0">Đã thanh lý</option>
                                             </select>
                                         </div>
                                     </div>

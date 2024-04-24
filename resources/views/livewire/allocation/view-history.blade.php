@@ -94,7 +94,7 @@
                                             </td>
                                             <td class="border-bottom-0">
                                                 <p class="mb-0 fw-normal">
-                                                    {{ $data->updated_at->format('d/m/Y') }}</p>
+                                                    {{ $data->updated_at ? $data->updated_at->format('d/m/Y') : "Chưa thu hồi" }}</p>
                                             </td>
                                             <td class="border-bottom-0">
                                                 <p class="mb-0 fw-normal">

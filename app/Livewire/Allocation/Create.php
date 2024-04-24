@@ -10,6 +10,7 @@ use Livewire\Attributes\Validate;
 use App\Models\Employee;
 use Livewire\Attributes\On;
 use App\Models\allocation as Allocation;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 #[Layout('layout.app.layout')]
@@ -45,6 +46,8 @@ class Create extends Component
                 "object" => $validated["object"],
                 "reciver_id" => $employee_id,
                 "created_by" => Auth::user()->id,
+                "created_at" => Carbon::now(),
+                "updated_at" => null
             ]);
             $this->dispatch(
                 'alert',
