@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="d-flex justify-content-between mb-3">
                                         <div class="col-5">
-                                            <label class="form-label">Loại tài sản</label>
+                                            <label class="form-label">Kiểu tài sản</label>
                                             <select class="form-select" wire:model='parent_id'>
                                             </select>
                                         </div>

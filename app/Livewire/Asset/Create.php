@@ -43,7 +43,7 @@ class Create extends Component
 
     public function mount()
     {
-        $this->purchase_date = now()->format('Y-m-d');
+        $this->purchase_date = $this->caculateDate();
         $this->query = request()->query();
         if(isset($this->query['id'])){
             $asset = Asset::find($this->query['id']);
@@ -64,7 +64,6 @@ class Create extends Component
             $warranty_period = Carbon::parse($this->warranty_period);
             $this->daysLeft = $warranty_period->diffInDays($purchase_date);
         }
-        $this->caculateDate();
 
     }
     public function render()
@@ -76,7 +75,7 @@ class Create extends Component
     }
     public function caculateDate()
     {
-        $this->warranty_period = Carbon::parse($this->purchase_date)->addDays(360)->format('Y-m-d');
+        return Carbon::parse($this->purchase_date)->addDays(360)->format('Y-m-d');
     }
     public function createEquipment()
     {
