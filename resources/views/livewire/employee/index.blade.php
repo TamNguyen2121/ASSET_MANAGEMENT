@@ -100,7 +100,7 @@
                                                 <h6 class="fw-normal mb-1">{{ $data->name }}</h6>
                                             </td>
                                             <td class="border-bottom-0">
-                                                <p class="mb-0 fw-normal">{{ $data->email }}</p>
+                                                <p class="mb-0 fw-normal">{{ $data->user_name }}</p>
                                             </td>
                                             <td class="border-bottom-0">
                                                 <p class="mb-0 fw-normal">{{ $data->getUser() }}</p>

@@ -24,7 +24,10 @@ class Index extends Component
     public function render()
     {
 
-        $suppliers = Supplier::nameSearch($this->name)->where('status', 1)->latest()->paginate($this->page);
+        $suppliers = Supplier::where(function($query) {
+            $query->where('name', 'like', '%' . $this->name . '%')
+                  ->orWhere('code', 'like', '%' . $this->name . '%');
+        })->where('status', 1)->latest()->paginate($this->page);
         $this->firstId = $suppliers[0] != null ?  $suppliers[0]->id : null;
         return view('livewire.suplier.index', [
             'suppliers' => $suppliers,

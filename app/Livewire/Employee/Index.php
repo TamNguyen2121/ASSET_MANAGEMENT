@@ -26,7 +26,11 @@ class Index extends Component
 
     public function render()
     {
-        $employees = Employee::nameSearch($this->name)->where('status', 1)->latest()->paginate($this->page);
+        $employees = Employee::where(function($query) {
+            $query->where('name', 'like', '%' . $this->name . '%')
+                  ->orWhere('user_name', 'like', '%' . $this->name . '%')
+                  ->orWhere('code', 'like', '%' . $this->name . '%');
+        })->where('status', 1)->latest()->paginate($this->page);
         $this->firstId = $employees[0] != null ? $employees[0]->id : null;
         return view('livewire.employee.index', [
             'users' => $employees
