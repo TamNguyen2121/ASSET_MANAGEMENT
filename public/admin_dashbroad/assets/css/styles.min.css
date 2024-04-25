@@ -20182,3 +20182,7 @@ ul {
     padding: 0;
     background-color: transparent;
 }
+
+.hover:hover .shadow {
+    background-color: #ddd !important;
+}

@@ -27,7 +27,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.admin.index',[
-            'allocations' => Allocation::latest()->limit(10)->get(),
+            'equipments' => Asset::where('status', 1)->get(),
         ]);
     }
 }
