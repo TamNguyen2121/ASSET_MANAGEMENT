@@ -11,7 +11,7 @@
                                     <i class="ti ti-search"></i>
                                 </span>
                                 <input type="text" class="form-control border border-start-0"
-                                    placeholder="Tìm tên nhà sản xuất" wire:model.live='name'>
+                                    placeholder="Tìm tên nhà sản xuất, mã nhà sản xuất" wire:model.live='name'>
                             </div>
                         </div>
                         <div class="col-6">

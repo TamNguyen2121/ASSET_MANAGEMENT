@@ -21,6 +21,7 @@ use Livewire\Attributes\Computed;
 class Create extends Component
 {
     #[Validate()]
+    public $asset;
     public $asset_category_id;
     public $asset_type_id;
     public $code;
@@ -38,27 +39,30 @@ class Create extends Component
     public $user_name;
     public $promissory_code;
     public $entry_code;
-    public $query = [];
+    public $query;
     public $user;
+    public $copy;
 
     public function mount()
     {
         $this->purchase_date = $this->caculateDate();
-        $this->query = request()->query();
-        if(isset($this->query['id'])){
-            $asset = Asset::find($this->query['id']);
-            $this->asset_category_id = $asset->asset_category_id;
-            $this->asset_type_id = $asset->asset_type_id;
-            $this->price = $asset->price;
-            $this->supplier_id = $asset->supplier_id;
-            $this->use_status = $asset->use_status;
-            $this->employee_id = $asset->employee_id;
-            $this->promissory_code = $asset->promissory_code;
-            $this->entry_code = $asset->entry_code;
-            $this->asset_description = $asset->asset_description;
-            $this->note = $asset->note;
-            $this->purchase_date = $asset->purchase_date;
-            $this->user = $asset->employee_id;
+        $this->copy = request()->query();
+        if(isset($this->copy['id'])){
+            $this->asset = Asset::find($this->copy['id']);
+            $this->asset_category_id = $this->asset->asset_category_id;
+            $this->asset_type_id = $this->asset->asset_type_id;
+            $this->price = $this->asset->price;
+            $this->supplier_id = $this->asset->supplier_id;
+            $this->serial = $this->asset->serial;
+            $this->use_status = $this->asset->use_status;
+            $this->employee_id = $this->asset->employee_id;
+            $this->promissory_code = $this->asset->promissory_code;
+            $this->entry_code = $this->asset->entry_code;
+            $this->asset_description = $this->asset->asset_description;
+            $this->note = $this->asset->note;
+            $this->purchase_date = $this->asset->purchase_date;
+            $this->warranty_period = $this->caculateDate();
+            $this->user = $this->asset->employee_id;
             $this->query = Employee::find($this->user)->name;
             $purchase_date = Carbon::parse($this->purchase_date);
             $warranty_period = Carbon::parse($this->warranty_period);

@@ -11,7 +11,7 @@
                                     <i class="ti ti-search"></i>
                                 </span>
                                 <input type="text" class="form-control border border-start-0"
-                                    placeholder="Nhập họ tên, tên đăng nhập" wire:model.live='name'>
+                                    placeholder="Nhập họ tên, tên đăng nhập hoặc mã nhân viên" wire:model.live='name'>
                             </div>
                         </div>
                         <div class="col-6">

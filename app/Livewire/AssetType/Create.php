@@ -69,6 +69,7 @@ class Create extends Component
                 confirm: false
             );
             $this->reset();
+            return $this->redirectRoute('admin.asset_type.list');
         }
     }
     public function editType($id)
